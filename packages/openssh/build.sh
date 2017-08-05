@@ -3,7 +3,7 @@ TERMUX_PKG_DESCRIPTION="Secure shell for logging into a remote machine"
 TERMUX_PKG_VERSION=7.6p1
 TERMUX_PKG_SRCURL=https://fastly.cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-${TERMUX_PKG_VERSION}.tar.gz
 TERMUX_PKG_SHA256=a323caeeddfe145baaa0db16e98d784b1fbc7dd436a6bf1f479dfd5cd1d21723
-TERMUX_PKG_DEPENDS="libandroid-support, ldns, openssl, libedit, libutil"
+TERMUX_PKG_DEPENDS="libandroid-support, ldns, openssl, krb5, libedit, libutil"
 # --disable-strip to prevent host "install" command to use "-s", which won't work for target binaries:
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
 --disable-etc-default-login
@@ -20,6 +20,7 @@ TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
 --with-cflags=-Dfd_mask=int
 --with-ldns
 --with-libedit
+--with-kerberos5
 --with-mantype=man
 --without-ssh1
 --without-stackprotect
