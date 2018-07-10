@@ -1,8 +1,7 @@
 TERMUX_PKG_HOMEPAGE=https://www.gnu.org/software/libgcrypt/
 TERMUX_PKG_DESCRIPTION="General purpose cryptographic library based on the code from GnuPG"
-TERMUX_PKG_VERSION=1.8.1
-TERMUX_PKG_REVISION=2
-TERMUX_PKG_SHA256=7a2875f8b1ae0301732e878c0cca2c9664ff09ef71408f085c50e332656a78b3
+TERMUX_PKG_VERSION=1.8.3
+TERMUX_PKG_SHA256=66ec90be036747602f2b48f98312361a9180c97c68a690a5f376fa0f67d0af7c
 TERMUX_PKG_SRCURL=https://www.gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-${TERMUX_PKG_VERSION}.tar.bz2
 TERMUX_PKG_DEPENDS="libgpg-error"
 TERMUX_PKG_DEVPACKAGE_DEPENDS="libgpg-error-dev"

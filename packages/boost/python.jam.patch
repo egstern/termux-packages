@@ -1,6 +1,8 @@
---- ../cache/boost_1_64_0/tools/build/src/tools/python.jam	2017-04-17 02:22:26.000000000 +0000
-+++ ./tools/build/src/tools/python.jam	2017-04-30 06:12:15.748537322 +0000
-@@ -651,7 +651,7 @@
+diff --git a/tools/build/src/tools/python.jam b/tools/build/src/tools/python.jam
+index 273b28a..3de7f40 100644
+--- a/tools/build/src/tools/python.jam
++++ b/tools/build/src/tools/python.jam
+@@ -651,7 +651,7 @@ local rule system-library-dependencies ( target-os )
  
          case aix : return  <library>pthread <library>dl ;
  

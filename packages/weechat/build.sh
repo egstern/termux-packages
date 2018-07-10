@@ -1,7 +1,8 @@
 TERMUX_PKG_HOMEPAGE=https://weechat.org/
 TERMUX_PKG_DESCRIPTION="Fast, light and extensible IRC chat client"
-TERMUX_PKG_VERSION=2.0
-TERMUX_PKG_SHA256=b6e1ea2ca6c70d6909d2a52da386d60f6c22478de128b05ded844c318fa1a149
+TERMUX_PKG_VERSION=2.1
+TERMUX_PKG_REVISION=1
+TERMUX_PKG_SHA256=a83977ba0ecc9d4cf3aac5977266ce9e584a3e05f1d797c2184c6ceb1f47063b
 TERMUX_PKG_SRCURL=https://www.weechat.org/files/src/weechat-${TERMUX_PKG_VERSION}.tar.bz2
 TERMUX_PKG_DEPENDS="ncurses, libgcrypt, libcurl, libgnutls, libandroid-support"
 # weechat-curses is a symlink to weechat, so remove it:

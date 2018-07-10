@@ -1,7 +1,7 @@
 TERMUX_PKG_HOMEPAGE=https://syncthing.net/
 TERMUX_PKG_DESCRIPTION="Decentralized file synchronization"
-TERMUX_PKG_VERSION=0.14.40
-TERMUX_PKG_SHA256=8e60ad0567230944cfb72c5587a4c37a6f7e2515c7bd3f975ef7b9d1c7979710
+TERMUX_PKG_VERSION=0.14.48
+TERMUX_PKG_SHA256=b4922518b012aa9bc46b39404a71ca00e5bcc2f0e0ad21a27a841a4965a9b32f
 TERMUX_PKG_SRCURL=https://github.com/syncthing/syncthing/releases/download/v${TERMUX_PKG_VERSION}/syncthing-source-v${TERMUX_PKG_VERSION}.tar.gz
 
 termux_step_make(){
@@ -21,10 +21,12 @@ termux_step_make(){
 
 	# Unset GOARCH so building build.go is works.
 	export GO_ARCH=$GOARCH
-	unset GOOS GOARCH
-
+	export _CC=$CC
+	unset GOOS GOARCH CC
+	
 	# Now file structure is same as go get etc.
 	go build build.go
+	export CC=$_CC
 	./build -goos android \
 		-goarch $GO_ARCH \
 		-no-upgrade \

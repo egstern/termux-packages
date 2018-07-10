@@ -4,6 +4,7 @@ TERMUX_PKG_VERSION=7.6p1
 TERMUX_PKG_SRCURL=https://fastly.cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-${TERMUX_PKG_VERSION}.tar.gz
 TERMUX_PKG_SHA256=a323caeeddfe145baaa0db16e98d784b1fbc7dd436a6bf1f479dfd5cd1d21723
 TERMUX_PKG_DEPENDS="libandroid-support, ldns, openssl, krb5, libedit, libutil"
+TERMUX_PKG_CONFLICTS="dropbear"
 # --disable-strip to prevent host "install" command to use "-s", which won't work for target binaries:
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
 --disable-etc-default-login
@@ -34,6 +35,7 @@ ac_cv_func_readpassphrase=no
 ac_cv_func_strnvis=no
 ac_cv_header_sys_un_h=yes
 ac_cv_search_getrrsetbyname=no
+ac_cv_func_bzero=yes
 "
 TERMUX_PKG_MAKE_INSTALL_TARGET="install-nokeys"
 TERMUX_PKG_RM_AFTER_INSTALL="bin/slogin share/man/man1/slogin.1"
@@ -60,7 +62,7 @@ termux_step_post_make_install () {
 	# "PrintMotd no" is due to our login program already showing it.
 	# OpenSSH 7.0 disabled ssh-dss by default, keep it for a while in Termux:
 	echo -e "PrintMotd no\nPasswordAuthentication no\nPubkeyAcceptedKeyTypes +ssh-dss\nSubsystem sftp $TERMUX_PREFIX/libexec/sftp-server" > $TERMUX_PREFIX/etc/ssh/sshd_config
-	echo "PubkeyAcceptedKeyTypes +ssh-dss" > $TERMUX_PREFIX/etc/ssh/ssh_config
+	printf "PubkeyAcceptedKeyTypes +ssh-dss\nSendEnv LANG\n" > $TERMUX_PREFIX/etc/ssh/ssh_config
 	cp $TERMUX_PKG_BUILDER_DIR/source-ssh-agent.sh $TERMUX_PREFIX/bin/source-ssh-agent
 	cp $TERMUX_PKG_BUILDER_DIR/ssh-with-agent.sh $TERMUX_PREFIX/bin/ssha
 

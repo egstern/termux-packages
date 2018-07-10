@@ -1,15 +1,14 @@
 TERMUX_PKG_HOMEPAGE=https://gstreamer.freedesktop.org/
 TERMUX_PKG_DESCRIPTION="GStreamer base plug-ins"
-TERMUX_PKG_VERSION=1.12.3
-TERMUX_PKG_REVISION=1
+TERMUX_PKG_VERSION=1.14.1
+TERMUX_PKG_SHA256=1026c7c3082d825d9b5d034c1a6dd8a4ebab60eb3738b0a0afde4ad2dc0b0db5
 TERMUX_PKG_SRCURL=https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-${TERMUX_PKG_VERSION}.tar.xz
-TERMUX_PKG_DEPENDS="gstreamer, libogg, libopus, libvorbis"
+TERMUX_PKG_DEPENDS="gstreamer, libjpeg-turbo, libopus, libpng, libvorbis"
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
 --disable-tests
 --disable-examples
 --disable-pango
 "
-TERMUX_PKG_SHA256=d3d37b8489d37fa0018973d850bd2067b98af335fef2fa543ee7d40359e3cea5
 
 termux_step_post_make_install () {
 	for BINARY in gst-play-1.0 gst-discoverer-1.0 gst-device-monitor-1.0

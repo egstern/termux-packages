@@ -1,14 +1,14 @@
 TERMUX_PKG_HOMEPAGE=https://ffmpeg.org
 TERMUX_PKG_DESCRIPTION="Tools and libraries to manipulate a wide range of multimedia formats and protocols"
 # NOTE: mpv has to be rebuilt and version bumped after updating ffmpeg.
-TERMUX_PKG_VERSION=3.3.4
-TERMUX_PKG_REVISION=2
-TERMUX_PKG_SHA256=98b97e1b908dfeb6aeb6d407e5a5eacdfc253a40c2d195f5867ed2d1d46ea957
+TERMUX_PKG_VERSION=4.0.1
+TERMUX_PKG_REVISION=1
+TERMUX_PKG_SHA256=605f5c01c60db35d3b617a79cabb2c7032412be243554602eeed1b628125c0ee
 TERMUX_PKG_SRCURL=https://www.ffmpeg.org/releases/ffmpeg-${TERMUX_PKG_VERSION}.tar.xz
 # libbz2 is used by matroska decoder:
 # libvpx is the VP8 & VP9 video encoder for WebM, see
 # https://trac.ffmpeg.org/wiki/Encode/VP8 and https://trac.ffmpeg.org/wiki/Encode/VP9
-TERMUX_PKG_DEPENDS="libbz2, libx264, libx265, xvidcore, libvorbis, libmp3lame, libopus, libvpx, libgnutls, libandroid-glob"
+TERMUX_PKG_DEPENDS="libbz2, libsoxr, libx264, libx265, xvidcore, libvorbis, libmp3lame, libopus, libvpx, libgnutls, libandroid-glob"
 TERMUX_PKG_INCLUDE_IN_DEVPACKAGE="share/ffmpeg/examples"
 TERMUX_PKG_CONFLICTS="libav"
 
@@ -45,7 +45,6 @@ termux_step_configure () {
 		--cxx=$CXX \
 		--cross-prefix=${TERMUX_HOST_PLATFORM}- \
 		--disable-avdevice \
-		--disable-ffserver \
 		--disable-static \
 		--disable-symver \
 		--disable-lzma \
@@ -60,6 +59,7 @@ termux_step_configure () {
 		--enable-libxvid \
 		--enable-libvpx \
 		--enable-shared \
+		--enable-libsoxr \
 		--prefix=$TERMUX_PREFIX \
 		--target-os=android \
 		--extra-libs="-landroid-glob" \

@@ -1,7 +1,7 @@
 TERMUX_PKG_HOMEPAGE=https://wiki.debian.org/Debootstrap
 TERMUX_PKG_DESCRIPTION="Bootstrap a basic Debian system"
-TERMUX_PKG_VERSION=1.0.92
-TERMUX_PKG_SHA256=e1c629430273ac746f2047a730b4c2ddcbcf2ff835f4152bd11340577734f719
+TERMUX_PKG_VERSION=1.0.102
+TERMUX_PKG_SHA256=09675c7338ff0a328a1d67d84af93af46716a618d6c8cdb8c76d1ce07cb70ec5
 TERMUX_PKG_SRCURL=http://http.debian.net/debian/pool/main/d/debootstrap/debootstrap_${TERMUX_PKG_VERSION}.tar.gz
 TERMUX_PKG_BUILD_IN_SRC=yes
 TERMUX_PKG_DEPENDS="wget, proot, perl"
