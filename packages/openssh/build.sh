@@ -1,8 +1,9 @@
 TERMUX_PKG_HOMEPAGE=https://www.openssh.com/
 TERMUX_PKG_DESCRIPTION="Secure shell for logging into a remote machine"
-TERMUX_PKG_VERSION=7.6p1
+TERMUX_PKG_VERSION=7.7p1
+TERMUX_PKG_REVISION=3
+TERMUX_PKG_SHA256=d73be7e684e99efcd024be15a30bffcbe41b012b2f7b3c9084aed621775e6b8f
 TERMUX_PKG_SRCURL=https://fastly.cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-${TERMUX_PKG_VERSION}.tar.gz
-TERMUX_PKG_SHA256=a323caeeddfe145baaa0db16e98d784b1fbc7dd436a6bf1f479dfd5cd1d21723
 TERMUX_PKG_DEPENDS="libandroid-support, ldns, openssl, krb5, libedit, libutil"
 TERMUX_PKG_CONFLICTS="dropbear"
 # --disable-strip to prevent host "install" command to use "-s", which won't work for target binaries:
